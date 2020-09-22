@@ -6,6 +6,7 @@ public class Job {
 
     private int id;
     private static int nextId = 1;
+    private String value;
 
     private String name;
     private Employer employer;
@@ -31,6 +32,10 @@ public class Job {
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+    @Override
+    public String toString() {
+        return value;
+    }
 
     @Override
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
@@ -39,7 +44,6 @@ public class Job {
         Employer employer = (Employer) o;
         return getId() == employer.getId();
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(getId());
