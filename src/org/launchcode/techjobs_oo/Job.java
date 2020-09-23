@@ -21,6 +21,7 @@ public class Job {
         id = nextId;
         nextId++;
     }
+
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
@@ -33,17 +34,13 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
     @Override
-    public String toString() {
-        return value;
-    }
-
-    @Override
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
         if (this == o) return true;
         if (!(o instanceof Employer)) return false;
         Employer employer = (Employer) o;
         return getId() == employer.getId();
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(getId());
@@ -95,5 +92,29 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    @Override
+    public String toString() {
+        String name = this.getName();
+        if (getName() == "" || getName() == null) {
+            name = "Data not available";
+        }
+        if (this.employer.getValue() == "" || this.employer.getValue() == null) {
+            employer.setValue("Data not available");
+        }
+        if (location.getValue() == "" || location.getValue() == null) {
+            location.setValue("Data not available");
+        }
+        if (positionType.getValue() == "" || positionType.getValue() == null) {
+            positionType.setValue("Data not available");
+        }
+        if (coreCompetency.getValue() == "" || coreCompetency.getValue() == null) {
+            coreCompetency.setValue("Data not available");
+        }
+        return "\n ID:" + getId() + "\n Name:" + name + "\n Employer:" + employer + "\n Location:" + location + "\n Position Type:" + positionType + "\n Core Competency:" + coreCompetency+"\n";
+    }
 }
+
+
+
 

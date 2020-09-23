@@ -31,14 +31,21 @@ public class JobTest {
     public void testJobsForEquality(){
         assertFalse(job1.equals(job2));
     }
-@Before
+@Test
 public void toBefore() {
-    Job job7 = new Job("Name:----", new Employer("Employer:----"), new Location("Location:----"), new org.launchcode.techjobs_oo.PositionType("Position Type:----"), new CoreCompetency("Core Competency:----"));
-    assertEquals("Name:----"+"\n", job7.getName());
-    assertEquals("Employer:----"+"\n", job7.getEmployer().getValue());
+    job7 = new Job("Ice cream taster", new Employer(""), new Location("Home"), new PositionType("UX"), new CoreCompetency("Taste"));
+    assertTrue(job7.toString().startsWith("\n"));
+    assertTrue(job7.toString().endsWith("\n"));
+    assertTrue(job7.toString().startsWith(""));
+    assertTrue(job7.toString().endsWith(""));
+    assertNotNull(job7.getEmployer().getValue()==null);
+    /*Job job7 = new Job("Name:----", new Employer("Employer:----"), new Location("Location:----"), new org.launchcode.techjobs_oo.PositionType("Position Type:----"), new CoreCompetency("Core Competency:----"));
+    assertEquals("Name:----", job7.getName());
+    assertEquals("Employer:----", job7.getEmployer().getValue());
     assertEquals("Location:----", job7.getLocation().getValue());
     assertEquals("Position Type:----", job7.getPositionType().getValue());
-    assertEquals("Core Competency:----", job7.getCoreCompetency().getValue());
+    assertEquals("Core Competency:----", job7.getCoreCompetency().getValue());*/
+
 }
     @After
     public void toAfter() {
