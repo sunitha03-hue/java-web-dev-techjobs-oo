@@ -36,9 +36,9 @@ public class Job {
     @Override
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
         if (this == o) return true;
-        if (!(o instanceof Employer)) return false;
-        Employer employer = (Employer) o;
-        return getId() == employer.getId();
+        if (!(o instanceof Job)) return false;
+        Job job1 = (Job) o;
+        return getId() == job1.getId();
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Job {
         return Objects.hash(getId());
     }
 
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
+    // TODO: `Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
     public int getId() {

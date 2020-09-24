@@ -15,7 +15,8 @@ public class JobTest {
          job2 = new Job();
     }
     @Test
-    public void testSettingJobId() { assertEquals(1,2,1);
+    public void testSettingJobId() {
+         assertEquals(job1.getId(),job2.getId(), 1);
     }
     @Test
     public void testJobConstructorSetAllFields()
